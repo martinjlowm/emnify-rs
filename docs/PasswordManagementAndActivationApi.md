@@ -15,7 +15,7 @@ Method | HTTP request | Description
 > user_activation_post(account_activationrequest)
 Activate User
 
-This service activates the user account and sets a password. The activation key is sent via email.  In this request, the following details should be provided: * `activation_token` (String required) - the activation token sent to a user via email * `password` (String required)  __Note:__ This is a public (unauthenticated) service which ignores auth tokens 
+This service activates the user account and sets a password. The activation key is sent via email.  In this request, the following details should be provided: * `activation_token` (String required) - the activation token sent to a user via email * `password` (String required)  _Note:_ This is a public (unauthenticated) service which ignores auth tokens 
 
 ### Parameters
 

@@ -148,7 +148,7 @@ pub async fn add_data_stream_filter(configuration: &configuration::Configuration
     }
 }
 
-/// Creates a new secret that may be used by API callbacks.  When an `api_secret` is assigned to a Service Profile with an API callback, API requests towards this URL will contain an `Authorization` header with a JSON Web Token. The `api_secret` is used as the __Signing Key__ of the JWT. 
+/// Creates a new secret that may be used by API callbacks.  When an `api_secret` is assigned to a Service Profile with an API callback, API requests towards this URL will contain an `Authorization` header with a JSON Web Token. The `api_secret` is used as the _Signing Key_ of the JWT. 
 pub async fn create_callback_secret(configuration: &configuration::Configuration, inline_object2: crate::models::InlineObject2) -> Result<(), Error<CreateCallbackSecretError>> {
 
     let local_var_client = &configuration.client;
@@ -210,7 +210,7 @@ pub async fn create_callback_url(configuration: &configuration::Configuration, b
     }
 }
 
-///  Data Streams may be created for real-time streaming of event and usage data in either `JSON` or `CSV` formats. The request body must contain the following properties:  * `stream_historic_data`: `0` - disabled, `1` - enabled, data up to 20 days old will be included in the stream * `data_stream_type`: an object that determines the type of data to be sent. The `id` property must be one of the following:     * `id: 1` - Usage Data     * `id: 2` - Event Data     * `id: 3` - Usage Data & Events * `api_type`: an object that indicates the integration type. Must be one of the following:     * `id: 1` - REST API     * `id: 2` - keen.io     * `id: 3` - DataDog     * `id: 4` - AWS Kinesis     * `id: 5` - __Deprecated__     * `id: 6` - REST API in Bulk Mode     * `id: 7` - Salesforce     * `id: 8` - AWS S3  ##### Additional Properties  The following additional parameters should be added depending on the data stream type:  * `api_parameter`: required for __AWS S3__ and for __AWS Kinesis__ in the format `<region>/<stream_or_bucket_name>` * `event_stream`: required for __Salesforce only__, the ID of the target event stream should be passed in here. * `api_username`: required for __Salesforce, keen.io, Datadog__. For __AWS__ integrations, this must be the ARN of the role with write permissions to the destination resource with a Trust Relationship applied. * `api_password`: required for __Salesforce, keen.io, Datadog__.  ##### API Callback URL  Data streams configured to use __Rest API__, __Rest API in Bulk Mode__ and __Salesforce__ may include an `api_callback` object (see  __/api/v1/api_callback__). The following properties may be included:  * `id` Integer (required): A numerical ID of an __existing API callback__ 
+///  Data Streams may be created for real-time streaming of event and usage data in either `JSON` or `CSV` formats. The request body must contain the following properties:  * `stream_historic_data`: `0` - disabled, `1` - enabled, data up to 20 days old will be included in the stream * `data_stream_type`: an object that determines the type of data to be sent. The `id` property must be one of the following:     * `id: 1` - Usage Data     * `id: 2` - Event Data     * `id: 3` - Usage Data & Events * `api_type`: an object that indicates the integration type. Must be one of the following:     * `id: 1` - REST API     * `id: 2` - keen.io     * `id: 3` - DataDog     * `id: 4` - AWS Kinesis     * `id: 5` - _Deprecated_     * `id: 6` - REST API in Bulk Mode     * `id: 7` - Salesforce     * `id: 8` - AWS S3  ##### Additional Properties  The following additional parameters should be added depending on the data stream type:  * `api_parameter`: required for _AWS S3_ and for _AWS Kinesis_ in the format `<region>/<stream_or_bucket_name>` * `event_stream`: required for _Salesforce only_, the ID of the target event stream should be passed in here. * `api_username`: required for _Salesforce, keen.io, Datadog_. For _AWS_ integrations, this must be the ARN of the role with write permissions to the destination resource with a Trust Relationship applied. * `api_password`: required for _Salesforce, keen.io, Datadog_.  ##### API Callback URL  Data streams configured to use _Rest API_, _Rest API in Bulk Mode_ and _Salesforce_ may include an `api_callback` object (see  _/api/v1/api_callback_). The following properties may be included:  * `id` Integer (required): A numerical ID of an _existing API callback_ 
 pub async fn create_data_stream(configuration: &configuration::Configuration, inline_object1: Option<crate::models::InlineObject1>) -> Result<(), Error<CreateDataStreamError>> {
 
     let local_var_client = &configuration.client;
@@ -359,7 +359,7 @@ pub async fn delete_data_streams(configuration: &configuration::Configuration, d
     }
 }
 
-/// Lists API callback secrets.  __Note:__ The `secret` property itself is not returned in this call. 
+/// Lists API callback secrets.  _Note:_ The `secret` property itself is not returned in this call. 
 pub async fn get_api_callback_secret(configuration: &configuration::Configuration, ) -> Result<Vec<crate::models::InlineResponse2005>, Error<GetApiCallbackSecretError>> {
 
     let local_var_client = &configuration.client;

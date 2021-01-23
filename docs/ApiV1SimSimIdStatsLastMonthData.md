@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **cost** | Option<**f32**> |  | [optional]
 **currency_id** | Option<**f32**> |  | [optional]
 **id** | Option<**f32**> |  | [optional]
-**traffic_type** | Option<[**crate::models::ApiV1SimSimIdStatsLastMonthDataTrafficType**](_api_v1_sim__sim_id__stats_last_month_data_traffic_type.md)> |  | [optional]
+**traffic_type** | Option<[**crate::models::ApiV1SimSimIdStatsLastMonthDataTrafficType**](_api_v1_sim_sim_id_stats_last_month_data_traffic_type.md)> |  | [optional]
 **currency** | Option<[**crate::models::Currency**](Currency.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -39,7 +39,7 @@ pub enum UserPasswordPatchError {
 }
 
 
-/// This service activates the user account and sets a password. The activation key is sent via email.  In this request, the following details should be provided: * `activation_token` (String required) - the activation token sent to a user via email * `password` (String required)  __Note:__ This is a public (unauthenticated) service which ignores auth tokens 
+/// This service activates the user account and sets a password. The activation key is sent via email.  In this request, the following details should be provided: * `activation_token` (String required) - the activation token sent to a user via email * `password` (String required)  _Note:_ This is a public (unauthenticated) service which ignores auth tokens 
 pub async fn user_activation_post(configuration: &configuration::Configuration, account_activationrequest: crate::models::AccountActivationrequest) -> Result<(), Error<UserActivationPostError>> {
 
     let local_var_client = &configuration.client;

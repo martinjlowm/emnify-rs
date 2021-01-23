@@ -18,7 +18,7 @@ Method | HTTP request | Description
 > dns_by_id_delete(dns_id)
 Delete DNS config
 
-Delete a DNS configuration object by ID.  __NOTE:__ A DNS config object cannot be deleted if it is in use by at least one Service Profile. 
+Delete a DNS configuration object by ID.  _NOTE:_ A DNS config object cannot be deleted if it is in use by at least one Service Profile. 
 
 ### Parameters
 
@@ -75,7 +75,7 @@ This endpoint does not need any parameter.
 > dns_post(createa_dn_sentryrequest)
 Create DNS config
 
-Creates a DNS configuration object. The DNS config can be applied to a service profile and all endpoints which use that service profile will have the associated DNS settings applied. DNS changes are instantly applied to any __new PDP context__; already connected devices with established PDPs will continue to use the previous nameserver config until the next time they reconnect.  Primary and secondary nameservers and IP version (`4` for IPV4 or `6` for IPV6) must be specified with this request.  __NOTE:__ The system currently falls back to IPV4 for the actually-enforced networking settings of endpoints, therefore __the IPV6 parameter will be ignored__ when provided. 
+Creates a DNS configuration object. The DNS config can be applied to a service profile and all endpoints which use that service profile will have the associated DNS settings applied. DNS changes are instantly applied to any _new PDP context_; already connected devices with established PDPs will continue to use the previous nameserver config until the next time they reconnect.  Primary and secondary nameservers and IP version (`4` for IPV4 or `6` for IPV6) must be specified with this request.  _NOTE:_ The system currently falls back to IPV4 for the actually-enforced networking settings of endpoints, therefore _the IPV6 parameter will be ignored_ when provided. 
 
 ### Parameters
 
@@ -139,7 +139,7 @@ Traffic limits are system configuration parameters defined for a single service.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, __warning:__ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
+**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, _warning:_ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
 
 ### Return type
 

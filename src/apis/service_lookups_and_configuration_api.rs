@@ -58,7 +58,7 @@ pub enum TrafficLimitGetError {
 }
 
 
-/// Delete a DNS configuration object by ID.  __NOTE:__ A DNS config object cannot be deleted if it is in use by at least one Service Profile. 
+/// Delete a DNS configuration object by ID.  _NOTE:_ A DNS config object cannot be deleted if it is in use by at least one Service Profile. 
 pub async fn dns_by_id_delete(configuration: &configuration::Configuration, dns_id: f32) -> Result<(), Error<DnsByIdDeleteError>> {
 
     let local_var_client = &configuration.client;
@@ -118,7 +118,7 @@ pub async fn dns_get(configuration: &configuration::Configuration, ) -> Result<V
     }
 }
 
-/// Creates a DNS configuration object. The DNS config can be applied to a service profile and all endpoints which use that service profile will have the associated DNS settings applied. DNS changes are instantly applied to any __new PDP context__; already connected devices with established PDPs will continue to use the previous nameserver config until the next time they reconnect.  Primary and secondary nameservers and IP version (`4` for IPV4 or `6` for IPV6) must be specified with this request.  __NOTE:__ The system currently falls back to IPV4 for the actually-enforced networking settings of endpoints, therefore __the IPV6 parameter will be ignored__ when provided. 
+/// Creates a DNS configuration object. The DNS config can be applied to a service profile and all endpoints which use that service profile will have the associated DNS settings applied. DNS changes are instantly applied to any _new PDP context_; already connected devices with established PDPs will continue to use the previous nameserver config until the next time they reconnect.  Primary and secondary nameservers and IP version (`4` for IPV4 or `6` for IPV6) must be specified with this request.  _NOTE:_ The system currently falls back to IPV4 for the actually-enforced networking settings of endpoints, therefore _the IPV6 parameter will be ignored_ when provided. 
 pub async fn dns_post(configuration: &configuration::Configuration, createa_dn_sentryrequest: crate::models::CreateaDnSentryrequest) -> Result<(), Error<DnsPostError>> {
 
     let local_var_client = &configuration.client;
