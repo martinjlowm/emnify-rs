@@ -29,6 +29,10 @@ pub struct Endpoint {
     pub ip_address_space: Option<crate::models::ApiV1EndpointStatus>,
     #[serde(rename = "sim", skip_serializing_if = "Option::is_none")]
     pub sim: Option<crate::models::ApiV1EndpointSim>,
+    #[serde(rename = "imei", skip_serializing_if = "Option::is_none")]
+    pub imei: Option<String>,
+    #[serde(rename = "imei_lock", skip_serializing_if = "Option::is_none")]
+    pub imei_lock: Option<bool>,
 }
 
 impl Endpoint {
@@ -42,6 +46,8 @@ impl Endpoint {
             ip_address: None,
             ip_address_space: None,
             sim: None,
+            imei: None,
+            imei_lock: None,
         }
     }
 }

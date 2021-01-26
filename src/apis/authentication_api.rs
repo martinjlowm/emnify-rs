@@ -82,6 +82,7 @@ pub enum UserMfaTypeGetError {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
 pub enum AuthenticationResponse {
     ApplicationTokenAuthentication(ApplicationTokenAuthenticationResponse),
     UserPasswordAuthentication(UserPasswordAuthenticationResponse),
@@ -119,6 +120,7 @@ pub struct UserPasswordAuthWithDeviceFingerprintResponse {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
 pub enum AuthenticationRequest {
     ApplicationTokenAuthentication(ApplicationTokenAuthentication),
     UserPasswordAuthentication(UserPasswordAuthentication),
