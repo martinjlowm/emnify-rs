@@ -9,7 +9,7 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct UpdateSIMrequest {
+pub struct UpdateSIMRequest {
     #[serde(rename = "issuer_org")]
     pub issuer_org: Option<serde_json::Value>,
     #[serde(rename = "reseller_org")]
@@ -20,14 +20,14 @@ pub struct UpdateSIMrequest {
     pub status: serde_json::Value,
 }
 
-impl UpdateSIMrequest {
+impl UpdateSIMRequest {
     pub fn new(
         issuer_org: Option<serde_json::Value>,
         reseller_org: serde_json::Value,
         customer_org: serde_json::Value,
         status: serde_json::Value,
-    ) -> UpdateSIMrequest {
-        UpdateSIMrequest {
+    ) -> UpdateSIMRequest {
+        UpdateSIMRequest {
             issuer_org,
             reseller_org,
             customer_org,
