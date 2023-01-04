@@ -1,10 +1,10 @@
-# \USSDApi
+# \UssdApi
 
 All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**endpoint_ussd_by_id_post**](USSDApi.md#endpoint_ussd_by_id_post) | **post** /api/v1/endpoint/{endpoint_id}/ussd | Create USSD dialog
+[**endpoint_ussd_by_id_post**](UssdApi.md#endpoint_ussd_by_id_post) | **POST** /api/v1/endpoint/{endpoint_id}/ussd | Create USSD dialog
 
 
 
@@ -20,7 +20,7 @@ Your application may start a Network-Initiated (NI) USSD Dialog for an endpoint.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**endpoint_id** | **f32** | The numeric ID of an Endpoint | [required] |
+**endpoint_id** | **i32** | The numeric ID of an Endpoint | [required] |
 **startinga_ussd_dialogrequest** | [**StartingaUssdDialogrequest**](StartingaUssdDialogrequest.md) |  | [required] |
 
 ### Return type

@@ -4,9 +4,9 @@ All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**user_activation_post**](PasswordManagementAndActivationApi.md#user_activation_post) | **post** /api/v1/user/activation | Activate User
-[**user_activation_resend_post**](PasswordManagementAndActivationApi.md#user_activation_resend_post) | **post** /api/v1/user/activation_resend | Resend User Activation E-mail
-[**user_password_patch**](PasswordManagementAndActivationApi.md#user_password_patch) | **patch** /api/v1/user/password | Change Password
+[**user_activation_post**](PasswordManagementAndActivationApi.md#user_activation_post) | **POST** /api/v1/user/activation | Activate User
+[**user_activation_resend_post**](PasswordManagementAndActivationApi.md#user_activation_resend_post) | **POST** /api/v1/user/activation_resend | Resend User Activation E-mail
+[**user_password_patch**](PasswordManagementAndActivationApi.md#user_password_patch) | **PATCH** /api/v1/user/password | Change Password
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 > user_activation_post(account_activationrequest)
 Activate User
 
-This service activates the user account and sets a password. The activation key is sent via email.  In this request, the following details should be provided: * `activation_token` (String required) - the activation token sent to a user via email * `password` (String required)  _Note:_ This is a public (unauthenticated) service which ignores auth tokens 
+This service activates the user account and sets a password. The activation key is sent via email.  In this request, the following details should be provided: * `activation_token` (String required) - the activation token sent to a user via email * `password` (String required)  __Note:__ This is a public (unauthenticated) service which ignores auth tokens 
 
 ### Parameters
 

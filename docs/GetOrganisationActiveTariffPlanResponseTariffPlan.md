@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **used_count** | Option<**f32**> |  | [optional]
 **id** | Option<**f32**> |  | [optional]
 **price** | Option<[**crate::models::GetOrganisationActiveTariffPlanResponseTariffPlanPrice**](GetOrganisationActiveTariffPlanResponse_tariff_plan_price.md)> |  | [optional]
-**currency** | Option<[**crate::models::GetOrganisationActiveTariffPlanResponseTariffPlanCurrency**](GetOrganisationActiveTariffPlanResponse_tariff_plan_currency.md)> |  | [optional]
+**currency** | Option<[**crate::models::OrganisationTariffPlanByOrgIdGet200ResponseInnerTariffPlanCurrency**](OrganisationTariffPlanByOrgIdGet_200_response_inner_tariff_plan_currency.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

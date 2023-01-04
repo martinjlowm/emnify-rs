@@ -4,14 +4,16 @@ All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**tariff_profile_by_id_delete**](TariffProfilesApi.md#tariff_profile_by_id_delete) | **delete** /api/v1/tariff_profile/{tariff_profile_id} | Delete Tariff Profile
-[**tariff_profile_by_id_get**](TariffProfilesApi.md#tariff_profile_by_id_get) | **get** /api/v1/tariff_profile/{tariff_profile_id} | Tariff Profile Details
-[**tariff_profile_by_id_patch**](TariffProfilesApi.md#tariff_profile_by_id_patch) | **patch** /api/v1/tariff_profile/{tariff_profile_id} | Update Tariff Profile
-[**tariff_profile_coverage_by_tp_id_get**](TariffProfilesApi.md#tariff_profile_coverage_by_tp_id_get) | **get** /api/v1/tariff_profile/{tariff_profile_id}/coverage | List Tariff Profile Coverage
-[**tariff_profile_get**](TariffProfilesApi.md#tariff_profile_get) | **get** /api/v1/tariff_profile | List Tariff Profiles
-[**tariff_profile_post**](TariffProfilesApi.md#tariff_profile_post) | **post** /api/v1/tariff_profile | Create Tariff Profile
-[**tariff_profile_ratezone_selection_by_tp_id_and_rz_id_delete**](TariffProfilesApi.md#tariff_profile_ratezone_selection_by_tp_id_and_rz_id_delete) | **delete** /api/v1/tariff_profile/{tariff_profile_id}/ratezone_selection/{ratezone_id} | Delete Ratezone from Tariff Profile
-[**tariff_profile_ratezone_selection_by_tp_id_and_rz_id_put**](TariffProfilesApi.md#tariff_profile_ratezone_selection_by_tp_id_and_rz_id_put) | **put** /api/v1/tariff_profile/{tariff_profile_id}/ratezone_selection/{ratezone_id} | Assign Ratezone to Tarriff Profile
+[**tariff_profile_by_id_delete**](TariffProfilesApi.md#tariff_profile_by_id_delete) | **DELETE** /api/v1/tariff_profile/{tariff_profile_id} | Delete Tariff Profile
+[**tariff_profile_by_id_get**](TariffProfilesApi.md#tariff_profile_by_id_get) | **GET** /api/v1/tariff_profile/{tariff_profile_id} | Tariff Profile Details
+[**tariff_profile_by_id_patch**](TariffProfilesApi.md#tariff_profile_by_id_patch) | **PATCH** /api/v1/tariff_profile/{tariff_profile_id} | Update Tariff Profile
+[**tariff_profile_coverage_by_tp_id_get**](TariffProfilesApi.md#tariff_profile_coverage_by_tp_id_get) | **GET** /api/v1/tariff_profile/{tariff_profile_id}/coverage | List Tariff Profile Coverage
+[**tariff_profile_get**](TariffProfilesApi.md#tariff_profile_get) | **GET** /api/v1/tariff_profile | List Tariff Profiles
+[**tariff_profile_inclusive_volume_assignment**](TariffProfilesApi.md#tariff_profile_inclusive_volume_assignment) | **PUT** /api/v1/tariff_profile/{tariff_profile_id}/inclusive_volume/{inclusive_volume_id} | Assign Inclusive Volume to Tarriff Profile
+[**tariff_profile_inclusive_volume_remove_assignment**](TariffProfilesApi.md#tariff_profile_inclusive_volume_remove_assignment) | **DELETE** /api/v1/tariff_profile/{tariff_profile_id}/inclusive_volume/{inclusive_volume_id} | Unassign Inclusive Volume from Tariff Profile
+[**tariff_profile_post**](TariffProfilesApi.md#tariff_profile_post) | **POST** /api/v1/tariff_profile | Create Tariff Profile
+[**tariff_profile_ratezone_selection_by_tp_id_and_rz_id_delete**](TariffProfilesApi.md#tariff_profile_ratezone_selection_by_tp_id_and_rz_id_delete) | **DELETE** /api/v1/tariff_profile/{tariff_profile_id}/ratezone_selection/{ratezone_id} | Delete Ratezone from Tariff Profile
+[**tariff_profile_ratezone_selection_by_tp_id_and_rz_id_put**](TariffProfilesApi.md#tariff_profile_ratezone_selection_by_tp_id_and_rz_id_put) | **PUT** /api/v1/tariff_profile/{tariff_profile_id}/ratezone_selection/{ratezone_id} | Assign Ratezone to Tarriff Profile
 
 
 
@@ -47,7 +49,7 @@ Name | Type | Description  | Required | Notes
 
 ## tariff_profile_by_id_get
 
-> serde_json::Value tariff_profile_by_id_get(tariff_profile_id)
+> crate::models::TariffProfile1 tariff_profile_by_id_get(tariff_profile_id)
 Tariff Profile Details
 
 Returns tariff profile specified by id. This tariff profile also contains information about the currently valid ratezones of the tariff in the tariff profile and if the ratezone is selected in the tariff profile. It also contains applied custom rates for the included tariffs. 
@@ -61,7 +63,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**crate::models::TariffProfile1**](TariffProfile_1.md)
 
 ### Authorization
 
@@ -138,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ## tariff_profile_get
 
-> Vec<crate::models::ListofTariffProfilesresponse> tariff_profile_get()
+> Vec<crate::models::TariffProfile1> tariff_profile_get()
 List Tariff Profiles
 
 Returns the list of tariff profiles of the user's own organisation.
@@ -149,7 +151,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<crate::models::ListofTariffProfilesresponse>**](ListofTariffProfilesresponse.md)
+[**Vec<crate::models::TariffProfile1>**](TariffProfile_1.md)
 
 ### Authorization
 
@@ -159,6 +161,68 @@ This endpoint does not need any parameter.
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## tariff_profile_inclusive_volume_assignment
+
+> tariff_profile_inclusive_volume_assignment(tariff_profile_id, inclusive_volume_id)
+Assign Inclusive Volume to Tarriff Profile
+
+Assignes an inclusive volume to the selected tariff profile. If no inclusive volume is assigned and the customer has multiple active inclusive volumes, the traffic for this tariff profile will be rated as \"Pay As You Go\".  The selected inclusive volume must not be expired and the tariff profile should not have an inclusive volume assigned yet. The tariff of the tariff profile and the inclusive volume ratezone have to match. 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tariff_profile_id** | **f32** | Tariff Profile ID | [required] |
+**inclusive_volume_id** | **f32** | Inclusive Volume ID | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## tariff_profile_inclusive_volume_remove_assignment
+
+> tariff_profile_inclusive_volume_remove_assignment(tariff_profile_id, inclusive_volume_id)
+Unassign Inclusive Volume from Tariff Profile
+
+Unassign the inclusive volume from the selected tariff profile. If the customer has multiple active inclusive volume, the traffic within that tariff profile will be rated as \"Pay As You Go\" afterwards. 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tariff_profile_id** | **f32** | Tariff Profile ID | [required] |
+**inclusive_volume_id** | **f32** | Inclusive Volume ID | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

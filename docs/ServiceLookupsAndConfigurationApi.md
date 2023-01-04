@@ -4,12 +4,12 @@ All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**dns_by_id_delete**](ServiceLookupsAndConfigurationApi.md#dns_by_id_delete) | **delete** /api/v1/dns/{dns_id} | Delete DNS config
-[**dns_get**](ServiceLookupsAndConfigurationApi.md#dns_get) | **get** /api/v1/dns | List DNS Configs
-[**dns_post**](ServiceLookupsAndConfigurationApi.md#dns_post) | **post** /api/v1/dns | Create DNS config
-[**service_get**](ServiceLookupsAndConfigurationApi.md#service_get) | **get** /api/v1/service | List Services
-[**service_traffic_limit_by_id_get**](ServiceLookupsAndConfigurationApi.md#service_traffic_limit_by_id_get) | **get** /api/v1/service/{service_id}/traffic_limit | Get Service Traffic Limit
-[**traffic_limit_get**](ServiceLookupsAndConfigurationApi.md#traffic_limit_get) | **get** /api/v1/traffic_limit | List Traffic Limits
+[**dns_by_id_delete**](ServiceLookupsAndConfigurationApi.md#dns_by_id_delete) | **DELETE** /api/v1/dns/{dns_id} | Delete DNS config
+[**dns_get**](ServiceLookupsAndConfigurationApi.md#dns_get) | **GET** /api/v1/dns | List DNS Configs
+[**dns_post**](ServiceLookupsAndConfigurationApi.md#dns_post) | **POST** /api/v1/dns | Create DNS config
+[**service_get**](ServiceLookupsAndConfigurationApi.md#service_get) | **GET** /api/v1/service | List Services
+[**service_traffic_limit_by_id_get**](ServiceLookupsAndConfigurationApi.md#service_traffic_limit_by_id_get) | **GET** /api/v1/service/{service_id}/traffic_limit | Get Service Traffic Limit
+[**traffic_limit_get**](ServiceLookupsAndConfigurationApi.md#traffic_limit_get) | **GET** /api/v1/traffic_limit | List Traffic Limits
 
 
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 > dns_by_id_delete(dns_id)
 Delete DNS config
 
-Delete a DNS configuration object by ID.  _NOTE:_ A DNS config object cannot be deleted if it is in use by at least one Service Profile. 
+Delete a DNS configuration object by ID.  __NOTE:__ A DNS config object cannot be deleted if it is in use by at least one Service Profile. 
 
 ### Parameters
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Required | Notes
 
 ## dns_get
 
-> Vec<crate::models::InlineResponse2003> dns_get()
+> Vec<crate::models::RetrieveDnSlistresponseInner> dns_get()
 List DNS Configs
 
 Retrieves a list of DNS configurations. DNS settings can be applied to a service profile and endpoints which use this service profile will have the associated DNS settings applied. 
@@ -56,7 +56,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<crate::models::InlineResponse2003>**](inline_response_200_3.md)
+[**Vec<crate::models::RetrieveDnSlistresponseInner>**](RetrieveDNSlistresponse_inner.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ This endpoint does not need any parameter.
 > dns_post(createa_dn_sentryrequest)
 Create DNS config
 
-Creates a DNS configuration object. The DNS config can be applied to a service profile and all endpoints which use that service profile will have the associated DNS settings applied. DNS changes are instantly applied to any _new PDP context_; already connected devices with established PDPs will continue to use the previous nameserver config until the next time they reconnect.  Primary and secondary nameservers and IP version (`4` for IPV4 or `6` for IPV6) must be specified with this request.  _NOTE:_ The system currently falls back to IPV4 for the actually-enforced networking settings of endpoints, therefore _the IPV6 parameter will be ignored_ when provided. 
+Creates a DNS configuration object. The DNS config can be applied to a service profile and all endpoints which use that service profile will have the associated DNS settings applied. DNS changes are instantly applied to any __new PDP context__; already connected devices with established PDPs will continue to use the previous nameserver config until the next time they reconnect.  Primary and secondary nameservers and IP version (`4` for IPV4 or `6` for IPV6) must be specified with this request.  __NOTE:__ The system currently falls back to IPV4 for the actually-enforced networking settings of endpoints, therefore __the IPV6 parameter will be ignored__ when provided. 
 
 ### Parameters
 
@@ -129,7 +129,7 @@ This endpoint does not need any parameter.
 
 ## service_traffic_limit_by_id_get
 
-> Vec<crate::models::InlineResponse2002> service_traffic_limit_by_id_get(service_id)
+> Vec<crate::models::ServiceTrafficLimitInner> service_traffic_limit_by_id_get(service_id)
 Get Service Traffic Limit
 
 Traffic limits are system configuration parameters defined for a single service. Traffic limits do not have direct effect, but have to be explicitly assigned to an endpoint or a service profile. 
@@ -139,11 +139,11 @@ Traffic limits are system configuration parameters defined for a single service.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, _warning:_ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
+**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, __warning:__ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
 
 ### Return type
 
-[**Vec<crate::models::InlineResponse2002>**](inline_response_200_2.md)
+[**Vec<crate::models::ServiceTrafficLimitInner>**](Service_Traffic_Limit_inner.md)
 
 ### Authorization
 

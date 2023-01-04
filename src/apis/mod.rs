@@ -1,5 +1,3 @@
-use reqwest;
-use serde_json;
 use std::error;
 use std::fmt;
 
@@ -18,7 +16,7 @@ pub enum Error<T> {
     ResponseError(ResponseContent<T>),
 }
 
-impl <T> fmt::Display for Error<T> {
+impl<T> fmt::Display for Error<T> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let (module, e) = match self {
             Error::Reqwest(e) => ("reqwest", e.to_string()),
@@ -30,7 +28,7 @@ impl <T> fmt::Display for Error<T> {
     }
 }
 
-impl <T: fmt::Debug> error::Error for Error<T> {
+impl<T: fmt::Debug> error::Error for Error<T> {
     fn source(&self) -> Option<&(dyn error::Error + 'static)> {
         Some(match self {
             Error::Reqwest(e) => e,
@@ -41,19 +39,19 @@ impl <T: fmt::Debug> error::Error for Error<T> {
     }
 }
 
-impl <T> From<reqwest::Error> for Error<T> {
+impl<T> From<reqwest::Error> for Error<T> {
     fn from(e: reqwest::Error) -> Self {
         Error::Reqwest(e)
     }
 }
 
-impl <T> From<serde_json::Error> for Error<T> {
+impl<T> From<serde_json::Error> for Error<T> {
     fn from(e: serde_json::Error) -> Self {
         Error::Serde(e)
     }
 }
 
-impl <T> From<std::io::Error> for Error<T> {
+impl<T> From<std::io::Error> for Error<T> {
     fn from(e: std::io::Error) -> Self {
         Error::Io(e)
     }
@@ -68,18 +66,18 @@ pub mod authentication_api;
 pub mod cloud_connect_api;
 pub mod endpoint_api;
 pub mod events_api;
-pub mod ip_address_spaces_api;
 pub mod integrations_api;
+pub mod ip_address_spaces_api;
 pub mod lookups_api;
 pub mod operator_api;
 pub mod organisation_api;
 pub mod password_management_and_activation_api;
-pub mod sims_api;
 pub mod service_lookups_and_configuration_api;
 pub mod service_profiles_api;
+pub mod sim_api;
 pub mod tariff_plans_api;
 pub mod tariff_profiles_api;
-pub mod ussd_api;
 pub mod user_management_api;
+pub mod ussd_api;
 
 pub mod configuration;

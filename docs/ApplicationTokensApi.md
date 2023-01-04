@@ -4,9 +4,9 @@ All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**application_token_by_id_patch**](ApplicationTokensApi.md#application_token_by_id_patch) | **patch** /api/v1/application_token/{app_token_id} | Update Application Token
-[**application_token_get**](ApplicationTokensApi.md#application_token_get) | **get** /api/v1/application_token | List Application Tokens
-[**application_token_post**](ApplicationTokensApi.md#application_token_post) | **post** /api/v1/application_token | Create Application Token
+[**application_token_by_id_patch**](ApplicationTokensApi.md#application_token_by_id_patch) | **PATCH** /api/v1/application_token/{app_token_id} | Update Application Token
+[**application_token_get**](ApplicationTokensApi.md#application_token_get) | **GET** /api/v1/application_token | List Application Tokens
+[**application_token_post**](ApplicationTokensApi.md#application_token_post) | **POST** /api/v1/application_token | Create Application Token
 
 
 

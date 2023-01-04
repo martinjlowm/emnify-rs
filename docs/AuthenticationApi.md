@@ -4,20 +4,20 @@ All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authenticate**](AuthenticationApi.md#authenticate) | **post** /api/v1/authenticate | Retrieve Authentication Token
-[**post_mfa**](AuthenticationApi.md#post_mfa) | **post** /api/v1/user/mfa | Create an MFA key
-[**user_mfa_by_id_patch**](AuthenticationApi.md#user_mfa_by_id_patch) | **patch** /api/v1/user/mfa/{key_id} | Activate MFA key
-[**user_mfa_by_user_id_and_key_id_delete**](AuthenticationApi.md#user_mfa_by_user_id_and_key_id_delete) | **delete** /api/v1/user/{user_id}/mfa/{key_id} | Delete an MFA key
-[**user_mfa_status_get**](AuthenticationApi.md#user_mfa_status_get) | **get** /api/v1/user/mfa/status | List MFA key Statuses
-[**user_mfa_trusted_device_by_user_id_and_device_id_delete**](AuthenticationApi.md#user_mfa_trusted_device_by_user_id_and_device_id_delete) | **delete** /api/v1/user/{user_id}/mfa/trusted_device/{device_id} | Delete a Trusted Device
-[**user_mfa_trusted_device_by_user_id_get**](AuthenticationApi.md#user_mfa_trusted_device_by_user_id_get) | **get** /api/v1/user/{user_id}/mfa/trusted_device | List Trusted Devices
-[**user_mfa_type_get**](AuthenticationApi.md#user_mfa_type_get) | **get** /api/v1/user/mfa/type | List MFA key types
+[**authenticate**](AuthenticationApi.md#authenticate) | **POST** /api/v1/authenticate | Retrieve Authentication Token
+[**post_mfa**](AuthenticationApi.md#post_mfa) | **POST** /api/v1/user/mfa | Create an MFA key
+[**user_mfa_by_id_patch**](AuthenticationApi.md#user_mfa_by_id_patch) | **PATCH** /api/v1/user/mfa/{key_id} | Activate MFA key
+[**user_mfa_by_user_id_and_key_id_delete**](AuthenticationApi.md#user_mfa_by_user_id_and_key_id_delete) | **DELETE** /api/v1/user/{user_id}/mfa/{key_id} | Delete an MFA key
+[**user_mfa_status_get**](AuthenticationApi.md#user_mfa_status_get) | **GET** /api/v1/user/mfa/status | List MFA key Statuses
+[**user_mfa_trusted_device_by_user_id_and_device_id_delete**](AuthenticationApi.md#user_mfa_trusted_device_by_user_id_and_device_id_delete) | **DELETE** /api/v1/user/{user_id}/mfa/trusted_device/{device_id} | Delete a Trusted Device
+[**user_mfa_trusted_device_by_user_id_get**](AuthenticationApi.md#user_mfa_trusted_device_by_user_id_get) | **GET** /api/v1/user/{user_id}/mfa/trusted_device | List Trusted Devices
+[**user_mfa_type_get**](AuthenticationApi.md#user_mfa_type_get) | **GET** /api/v1/user/mfa/type | List MFA key types
 
 
 
 ## authenticate
 
-> crate::models::OneOfobjectobject authenticate(UNKNOWN_BASE_TYPE)
+> crate::models::AuthenticationResponse authenticate(authentication)
 Retrieve Authentication Token
 
 This entrypoint returns a JWT `auth_token` for authenticating further requests to the API. 
@@ -27,11 +27,11 @@ This entrypoint returns a JWT `auth_token` for authenticating further requests t
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) | Authentication using Application Tokens or user/password combination | [required] |
+**authentication** | [**Authentication**](Authentication.md) | Authentication using Application Tokens or user/password combination | [required] |
 
 ### Return type
 
-[**crate::models::OneOfobjectobject**](oneOf<object,object>.md)
+[**crate::models::AuthenticationResponse**](AuthenticationResponse.md)
 
 ### Authorization
 
@@ -47,7 +47,7 @@ No authorization required
 
 ## post_mfa
 
-> crate::models::CreateMfaKeyResponse post_mfa(inline_object)
+> crate::models::CreateMfaKeyResponse post_mfa(post_mfa_request)
 Create an MFA key
 
 Generate and store a MFA key for the requesting user. The MFA key will have the status `activation pending` after this call and must be activated through a separate call (`/api/v1/user/mfa/{id}`). You must provide following fields with this request:  * `type` (Object required)   - id (Number) * `password` (String required) - User password   The **MFA key** object returned by the server contains the following properties:  * `id` (Integer) - The unique ID of this MFA key * `status` (Object) ID (Integer) - Id of status of this MFA key   - `description` (String) - description of the status * `type` (Object) ID (Integer) - Id of type of this MFA key   - `description` (String) - description of the type * `secret_key` (String) - Secret key (encoded in Base32) for this MFA key, will be displayed only on creation * `otpauth` (String) - Secret key as a URI encoded for QR codes, will be displayed only on creation * `creation_date` (Timestamp) - Timestamp when this MFA key was created - type: ISO 8601 timestamp format * `activation_date` (Timestamp) - Timestamp when this MFA key was activated - type: ISO 8601 timestamp format 
@@ -57,7 +57,7 @@ Generate and store a MFA key for the requesting user. The MFA key will have the 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**inline_object** | [**InlineObject**](InlineObject.md) |  | [required] |
+**post_mfa_request** | [**PostMfaRequest**](PostMfaRequest.md) |  | [required] |
 
 ### Return type
 

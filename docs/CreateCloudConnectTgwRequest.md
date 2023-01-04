@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_type** | **i32** |  | 
+**r#type** | **i32** |  | 
 **name** | **String** |  | 
 **description** | Option<**String**> |  | [optional]
 **vpc_cidr** | **Vec<String>** |  | 

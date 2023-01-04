@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **active** | Option<**bool**> |  | [optional]
 **applied_rate** | Option<**f32**> |  | [optional]
 **id** | Option<**f32**> |  | [optional]
+**service_level** | Option<[**crate::models::OrganisationTariffPlanByOrgIdGet200ResponseInnerTariffPlanServiceLevel**](OrganisationTariffPlanByOrgIdGet_200_response_inner_tariff_plan_service_level.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

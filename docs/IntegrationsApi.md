@@ -4,67 +4,39 @@ All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_data_stream_filter**](IntegrationsApi.md#add_data_stream_filter) | **put** /api/v1/data_stream/{data_stream_id}/filter/event_type/{event_type_id} | Add event filter to a data stream
-[**create_callback_secret**](IntegrationsApi.md#create_callback_secret) | **post** /api/v1/api_secret | Create a Callback Secret
-[**create_callback_url**](IntegrationsApi.md#create_callback_url) | **post** /api/v1/api_callback | Create a Callback URL
-[**create_data_stream**](IntegrationsApi.md#create_data_stream) | **post** /api/v1/data_stream | Create a Data Stream
-[**delete_callback_secret**](IntegrationsApi.md#delete_callback_secret) | **delete** /api/v1/api_secret/{api_secret_id} | Delete a Callback Secret
-[**delete_callback_url**](IntegrationsApi.md#delete_callback_url) | **delete** /api/v1/api_callback/{api_callback_id} | Delete a Callback URL
-[**delete_data_stream_filter**](IntegrationsApi.md#delete_data_stream_filter) | **delete** /api/v1/data_stream/{data_stream_id}/filter/event_type/{event_type_id} | Delete a Data Stream filter
-[**delete_data_streams**](IntegrationsApi.md#delete_data_streams) | **delete** /api/v1/data_stream/{data_stream_id} | Delete a Data Stream by ID
-[**get_api_callback_secret**](IntegrationsApi.md#get_api_callback_secret) | **get** /api/v1/api_secret | List API Callback Secrets
-[**get_api_callback_ur_ls**](IntegrationsApi.md#get_api_callback_ur_ls) | **get** /api/v1/api_callback | Retrieve list of API Callback URLs
-[**get_callback_secretby_id**](IntegrationsApi.md#get_callback_secretby_id) | **get** /api/v1/api_secret/{api_secret_id} | Get a Callback Secret by ID
-[**get_callback_ur_lby_id**](IntegrationsApi.md#get_callback_ur_lby_id) | **get** /api/v1/api_callback/{api_callback_id} | Get a Callback URL by ID
-[**get_data_stream_filters**](IntegrationsApi.md#get_data_stream_filters) | **get** /api/v1/data_stream/{data_stream_id}/filter/event_type | Retrieve event filters of a datastream
-[**get_data_streams**](IntegrationsApi.md#get_data_streams) | **get** /api/v1/data_stream | Retrieve List of Data Streams
+[**create_callback_secret**](IntegrationsApi.md#create_callback_secret) | **POST** /api/v1/api_secret | Create a Callback Secret
+[**create_callback_url**](IntegrationsApi.md#create_callback_url) | **POST** /api/v1/api_callback | Create a Callback URL
+[**create_data_streamer**](IntegrationsApi.md#create_data_streamer) | **POST** /api/v2/data_stream | Create Data Stream
+[**data_streamer_v2_by_id_restart**](IntegrationsApi.md#data_streamer_v2_by_id_restart) | **POST** /api/v2/data_stream/{data_stream_id}/restart | Restart Existing Data Stream
+[**delete_callback_secret**](IntegrationsApi.md#delete_callback_secret) | **DELETE** /api/v1/api_secret/{api_secret_id} | Delete a Callback Secret
+[**delete_callback_url**](IntegrationsApi.md#delete_callback_url) | **DELETE** /api/v1/api_callback/{api_callback_id} | Delete a Callback URL
+[**delete_data_streamer_v2**](IntegrationsApi.md#delete_data_streamer_v2) | **DELETE** /api/v2/data_stream/{data_stream_id} | Delete Existing Data Stream
+[**get_api_callback_secret**](IntegrationsApi.md#get_api_callback_secret) | **GET** /api/v1/api_secret | List API Callback Secrets
+[**get_api_callback_urls**](IntegrationsApi.md#get_api_callback_urls) | **GET** /api/v1/api_callback | Retrieve list of API Callback URLs
+[**get_callback_secretby_id**](IntegrationsApi.md#get_callback_secretby_id) | **GET** /api/v1/api_secret/{api_secret_id} | Get a Callback Secret by ID
+[**get_callback_ur_lby_id**](IntegrationsApi.md#get_callback_ur_lby_id) | **GET** /api/v1/api_callback/{api_callback_id} | Get a Callback URL by ID
+[**get_data_streamer_by_id_v2**](IntegrationsApi.md#get_data_streamer_by_id_v2) | **GET** /api/v2/data_stream/{data_stream_id} | Get Details on Existing Data Stream
+[**get_data_streamer_data_stream_type**](IntegrationsApi.md#get_data_streamer_data_stream_type) | **GET** /api/v2/data_stream/type | Get Data Stream Types
+[**get_data_streamer_enum_filter_field_type**](IntegrationsApi.md#get_data_streamer_enum_filter_field_type) | **GET** /api/v2/data_stream/filter_field_type | Get Possible Data Stream Filter Fields
+[**get_data_streamer_statuses**](IntegrationsApi.md#get_data_streamer_statuses) | **GET** /api/v2/data_stream/status | Get Possible Data Stream Statuses
+[**list_data_streamer_v2s**](IntegrationsApi.md#list_data_streamer_v2s) | **GET** /api/v2/data_stream | List Data Stream configurations of your organization
+[**patch_v2_data_stream**](IntegrationsApi.md#patch_v2_data_stream) | **PATCH** /api/v2/data_stream/{data_stream_id} | Modify Existing Data Stream
 
-
-
-## add_data_stream_filter
-
-> add_data_stream_filter(data_stream_id, event_type_id)
-Add event filter to a data stream
-
-One or more filters by `event_type` can be added to a data stream. When such filters are applied, only events of those type are included in the data stream. 
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**data_stream_id** | **i32** | Numerical ID of a Data Stream | [required] |
-**event_type_id** | **f32** | Numerical ID of an event type. Event types and their description can be found in the `/api/v1/event/type` lookup call.  | [required] |
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_callback_secret
 
-> create_callback_secret(inline_object2)
+> create_callback_secret(get_api_callback_secret200_response_inner)
 Create a Callback Secret
 
-Creates a new secret that may be used by API callbacks.  When an `api_secret` is assigned to a Service Profile with an API callback, API requests towards this URL will contain an `Authorization` header with a JSON Web Token. The `api_secret` is used as the _Signing Key_ of the JWT. 
+Creates a new secret that may be used by API callbacks.  When an `api_secret` is assigned to a Service Profile with an API callback, API requests towards this URL will contain an `Authorization` header with a JSON Web Token. The `api_secret` is used as the __Signing Key__ of the JWT. 
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**inline_object2** | [**InlineObject2**](InlineObject2.md) |  | [required] |
+**get_api_callback_secret200_response_inner** | [**GetApiCallbackSecret200ResponseInner**](GetApiCallbackSecret200ResponseInner.md) |  | [required] |
 
 ### Return type
 
@@ -112,19 +84,19 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## create_data_stream
+## create_data_streamer
 
-> create_data_stream(inline_object1)
-Create a Data Stream
+> create_data_streamer(list_data_streamer_v2s200_response)
+Create Data Stream
 
- Data Streams may be created for real-time streaming of event and usage data in either `JSON` or `CSV` formats. The request body must contain the following properties:  * `stream_historic_data`: `0` - disabled, `1` - enabled, data up to 20 days old will be included in the stream * `data_stream_type`: an object that determines the type of data to be sent. The `id` property must be one of the following:     * `id: 1` - Usage Data     * `id: 2` - Event Data     * `id: 3` - Usage Data & Events * `api_type`: an object that indicates the integration type. Must be one of the following:     * `id: 1` - REST API     * `id: 2` - keen.io     * `id: 3` - DataDog     * `id: 4` - AWS Kinesis     * `id: 5` - _Deprecated_     * `id: 6` - REST API in Bulk Mode     * `id: 7` - Salesforce     * `id: 8` - AWS S3  ##### Additional Properties  The following additional parameters should be added depending on the data stream type:  * `api_parameter`: required for _AWS S3_ and for _AWS Kinesis_ in the format `<region>/<stream_or_bucket_name>` * `event_stream`: required for _Salesforce only_, the ID of the target event stream should be passed in here. * `api_username`: required for _Salesforce, keen.io, Datadog_. For _AWS_ integrations, this must be the ARN of the role with write permissions to the destination resource with a Trust Relationship applied. * `api_password`: required for _Salesforce, keen.io, Datadog_.  ##### API Callback URL  Data streams configured to use _Rest API_, _Rest API in Bulk Mode_ and _Salesforce_ may include an `api_callback` object (see  _/api/v1/api_callback_). The following properties may be included:  * `id` Integer (required): A numerical ID of an _existing API callback_ 
+Create Data Stream to your destination. Click on Examples to see available Data Streams and configuration parameters.  Currently available `connection_types` are - `AwsKinesis` - `S3` - `RestAPI` - `KeenIO` - `Datadog` - `EventHubs` - `PubSub` 
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**inline_object1** | Option<[**InlineObject1**](InlineObject1.md)> |  |  |
+**list_data_streamer_v2s200_response** | [**ListDataStreamerV2s200Response**](ListDataStreamerV2s200Response.md) |  | [required] |
 
 ### Return type
 
@@ -137,6 +109,36 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## data_streamer_v2_by_id_restart
+
+> data_streamer_v2_by_id_restart(data_stream_id)
+Restart Existing Data Stream
+
+Restart your Existing Data Stream. This might be necessary when e.g. your Webhook endpoint has been unreachable for an extended period of time. Webhook Data Stream will exhaust retries and go into Error State. By using this API call your Data Stream will be restarted and continue trying to send data. 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**data_stream_id** | **String** | ID of a data stream. | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -198,50 +200,17 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## delete_data_stream_filter
+## delete_data_streamer_v2
 
-> delete_data_stream_filter(data_stream_id, event_type_id)
-Delete a Data Stream filter
-
-Removes event filters applied to a data stream by `event_type` id. 
+> delete_data_streamer_v2(data_stream_id)
+Delete Existing Data Stream
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**data_stream_id** | **i32** | Numerical ID of a Data Stream | [required] |
-**event_type_id** | **f32** | Numerical ID of an event type. Event types and their description can be found in the `/api/v1/event/type` lookup call.  | [required] |
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## delete_data_streams
-
-> delete_data_streams(data_stream_id)
-Delete a Data Stream by ID
-
-A data stream may be deleted by ID. The ID is the top-level `id` property returned in each object listed in `GET /data_stream`. 
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**data_stream_id** | **i32** | Numerical ID of a Data Stream | [required] |
+**data_stream_id** | **String** | ID of a data stream. | [required] |
 
 ### Return type
 
@@ -261,10 +230,10 @@ Name | Type | Description  | Required | Notes
 
 ## get_api_callback_secret
 
-> Vec<crate::models::InlineResponse2005> get_api_callback_secret()
+> Vec<crate::models::GetApiCallbackSecret200ResponseInner> get_api_callback_secret()
 List API Callback Secrets
 
-Lists API callback secrets.  _Note:_ The `secret` property itself is not returned in this call. 
+Lists API callback secrets.  __Note:__ The `secret` property itself is not returned in this call. 
 
 ### Parameters
 
@@ -272,7 +241,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<crate::models::InlineResponse2005>**](inline_response_200_5.md)
+[**Vec<crate::models::GetApiCallbackSecret200ResponseInner>**](GetAPICallbackSecret_200_response_inner.md)
 
 ### Authorization
 
@@ -286,9 +255,9 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_api_callback_ur_ls
+## get_api_callback_urls
 
-> Vec<serde_json::Value> get_api_callback_ur_ls()
+> Vec<serde_json::Value> get_api_callback_urls()
 Retrieve list of API Callback URLs
 
 ### Parameters
@@ -313,7 +282,7 @@ This endpoint does not need any parameter.
 
 ## get_callback_secretby_id
 
-> crate::models::InlineObject2 get_callback_secretby_id(api_secret_id)
+> crate::models::GetApiCallbackSecret200ResponseInner get_callback_secretby_id(api_secret_id)
 Get a Callback Secret by ID
 
 ### Parameters
@@ -325,7 +294,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::InlineObject2**](inline_object_2.md)
+[**crate::models::GetApiCallbackSecret200ResponseInner**](GetAPICallbackSecret_200_response_inner.md)
 
 ### Authorization
 
@@ -367,23 +336,21 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_data_stream_filters
+## get_data_streamer_by_id_v2
 
-> Vec<crate::models::CreateMfaKeyResponseStatus> get_data_stream_filters(data_stream_id)
-Retrieve event filters of a datastream
-
-Returns a list of event filters applied to a data stream. When event filters are applied to data streams, only events of that type are included in a stream. 
+> crate::models::GetDataStreamerByIdV2200Response get_data_streamer_by_id_v2(data_stream_id)
+Get Details on Existing Data Stream
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**data_stream_id** | **i32** | Numerical ID of a Data Stream | [required] |
+**data_stream_id** | **String** | ID of a data stream. | [required] |
 
 ### Return type
 
-[**Vec<crate::models::CreateMfaKeyResponseStatus>**](Create_MFA_Key_Response_status.md)
+[**crate::models::GetDataStreamerByIdV2200Response**](GetDataStreamerByIdV2_200_response.md)
 
 ### Authorization
 
@@ -397,10 +364,12 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_data_streams
+## get_data_streamer_data_stream_type
 
-> Vec<crate::models::InlineResponse2004> get_data_streams()
-Retrieve List of Data Streams
+> Vec<crate::models::GetDataStreamerStatuses200ResponseInner> get_data_streamer_data_stream_type()
+Get Data Stream Types
+
+List available Data Stream Types.  (`1`) will only stream `Usage` Data.  (`2`) will only stream `Event` Data. 
 
 ### Parameters
 
@@ -408,7 +377,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<crate::models::InlineResponse2004>**](inline_response_200_4.md)
+[**Vec<crate::models::GetDataStreamerStatuses200ResponseInner>**](GetDataStreamerStatuses_200_response_inner.md)
 
 ### Authorization
 
@@ -418,6 +387,112 @@ This endpoint does not need any parameter.
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_data_streamer_enum_filter_field_type
+
+> Vec<crate::models::GetDataStreamerStatuses200ResponseInner> get_data_streamer_enum_filter_field_type()
+Get Possible Data Stream Filter Fields
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Vec<crate::models::GetDataStreamerStatuses200ResponseInner>**](GetDataStreamerStatuses_200_response_inner.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_data_streamer_statuses
+
+> Vec<crate::models::GetDataStreamerStatuses200ResponseInner> get_data_streamer_statuses()
+Get Possible Data Stream Statuses
+
+List Possible Data Stream Statuses.  (`1`) is the normal `Running` state meaning your data stream is active and streams data.  (`2`) indicates a `Paused` data stream. It will not send messages to your destination. However, messages meant for this data stream are routed and will be stored up to 7 days. You will first receive historic data once you resume a paused streamer after longer pausing.  (`3`) indicates that an `Error` has occurred. This might be problems in the configuration (e.g. missing permissions) or your destination has been unavailable for a longer period of time and the data stream exceeded maximum retries. You may restart the streamer in order to fix a temporary problem, misconfigured streamers will continue to fail.  (`4`) is a `Pending` state. Your data stream has not been initialized, yet. This state may occur for a very short time. 
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Vec<crate::models::GetDataStreamerStatuses200ResponseInner>**](GetDataStreamerStatuses_200_response_inner.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## list_data_streamer_v2s
+
+> crate::models::ListDataStreamerV2s200Response list_data_streamer_v2s()
+List Data Stream configurations of your organization
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**crate::models::ListDataStreamerV2s200Response**](ListDataStreamerV2s_200_response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_v2_data_stream
+
+> patch_v2_data_stream(data_stream_id, patch_v2_data_stream_request)
+Modify Existing Data Stream
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**data_stream_id** | **String** | ID of a data stream. | [required] |
+**patch_v2_data_stream_request** | [**PatchV2DataStreamRequest**](PatchV2DataStreamRequest.md) |  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

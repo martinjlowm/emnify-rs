@@ -4,8 +4,8 @@ All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_organisation_active_tariff_plan**](TariffPlansApi.md#get_organisation_active_tariff_plan) | **get** /api/v1/organisation/{org_id_or_my}/tariff_plan/active | Get the active tariff plan for the given organisation
-[**organisation_tariff_plan_by_org_id_get**](TariffPlansApi.md#organisation_tariff_plan_by_org_id_get) | **get** /api/v1/organisation/{org_id}/tariff_plan | List Organisation Tariff Plans
+[**get_organisation_active_tariff_plan**](TariffPlansApi.md#get_organisation_active_tariff_plan) | **GET** /api/v1/organisation/{org_id_or_my}/tariff_plan/active | Get the active tariff plan for the given organisation
+[**organisation_tariff_plan_by_org_id_get**](TariffPlansApi.md#organisation_tariff_plan_by_org_id_get) | **GET** /api/v1/organisation/{org_id}/tariff_plan | List Organisation Tariff Plans
 
 
 
@@ -21,7 +21,7 @@ Retrieve detailed information about the currently assigned `tariff_plan` of the 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**org_id_or_my** | **String** | Numerical ID of an Organisation or the string `my` | [required] |[default to my]
+**org_id_or_my** | **String** | Numerical ID of an Organisation or the string `my` to use the currently authorized organisation | [required] |[default to my]
 
 ### Return type
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ## organisation_tariff_plan_by_org_id_get
 
-> serde_json::Value organisation_tariff_plan_by_org_id_get(org_id)
+> Vec<crate::models::OrganisationTariffPlanByOrgIdGet200ResponseInner> organisation_tariff_plan_by_org_id_get(org_id)
 List Organisation Tariff Plans
 
 Retrieve a list of all Tariff Plans that are available for the given organisation. The available tariff plans for one's own organisation can also be retrieved with a call to `/api/v1/organisation/my/tariff_plan` 
@@ -55,7 +55,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**Vec<crate::models::OrganisationTariffPlanByOrgIdGet200ResponseInner>**](OrganisationTariffPlanByOrgIdGet_200_response_inner.md)
 
 ### Authorization
 

@@ -1,13 +1,13 @@
-# \IPAddressSpacesApi
+# \IpAddressSpacesApi
 
 All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ip_address_space_available_by_ip_address_version_get**](IPAddressSpacesApi.md#ip_address_space_available_by_ip_address_version_get) | **get** /api/v1/ip_address_space/available | Get Random Address Spaces
-[**ip_address_space_by_id_delete**](IPAddressSpacesApi.md#ip_address_space_by_id_delete) | **delete** /api/v1/ip_address_space/{address_space_id} | Release an IP Address Space from an Organisation
-[**ip_address_space_by_id_put**](IPAddressSpacesApi.md#ip_address_space_by_id_put) | **put** /api/v1/ip_address_space/{address_space_id} | Assign an IP Address Space to an Organisation
-[**ip_address_space_get**](IPAddressSpacesApi.md#ip_address_space_get) | **get** /api/v1/ip_address_space | List IP Address Spaces
+[**ip_address_space_available_by_ip_address_version_get**](IpAddressSpacesApi.md#ip_address_space_available_by_ip_address_version_get) | **GET** /api/v1/ip_address_space/available | Get Random Address Spaces
+[**ip_address_space_by_id_delete**](IpAddressSpacesApi.md#ip_address_space_by_id_delete) | **DELETE** /api/v1/ip_address_space/{address_space_id} | Release an IP Address Space from an Organisation
+[**ip_address_space_by_id_put**](IpAddressSpacesApi.md#ip_address_space_by_id_put) | **PUT** /api/v1/ip_address_space/{address_space_id} | Assign an IP Address Space to an Organisation
+[**ip_address_space_get**](IpAddressSpacesApi.md#ip_address_space_get) | **GET** /api/v1/ip_address_space | List IP Address Spaces
 
 
 

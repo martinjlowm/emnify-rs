@@ -4,15 +4,16 @@ All URIs are relative to *https://cdn.emnify.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_traffic_limit**](ServiceProfilesApi.md#add_traffic_limit) | **put** /api/v1/service_profile/{profile_id}/service/{service_id}/traffic_limit/{limit_id} | Add Traffic Limit to Service Profile
-[**remove_traffic_limit**](ServiceProfilesApi.md#remove_traffic_limit) | **delete** /api/v1/service_profile/{profile_id}/service/{service_id}/traffic_limit/{limit_id} | Remove Traffic Limit from a Service Profile
-[**service_profile_by_profile_id_delete**](ServiceProfilesApi.md#service_profile_by_profile_id_delete) | **delete** /api/v1/service_profile/{profile_id} | Delete a Service Profile
-[**service_profile_by_profile_id_get**](ServiceProfilesApi.md#service_profile_by_profile_id_get) | **get** /api/v1/service_profile/{profile_id} | Retrieve a Service Profile
-[**service_profile_by_profile_id_patch**](ServiceProfilesApi.md#service_profile_by_profile_id_patch) | **patch** /api/v1/service_profile/{profile_id} | Update Service Profile
-[**service_profile_get**](ServiceProfilesApi.md#service_profile_get) | **get** /api/v1/service_profile | List Service Profiles
-[**service_profile_post**](ServiceProfilesApi.md#service_profile_post) | **post** /api/v1/service_profile | Create Service Profile
-[**service_profile_service_by_profile_and_service_delete**](ServiceProfilesApi.md#service_profile_service_by_profile_and_service_delete) | **delete** /api/v1/service_profile/{profile_id}/service/{service_id} | Remove a Service from a Service Profile
-[**service_profile_service_by_profile_and_service_put**](ServiceProfilesApi.md#service_profile_service_by_profile_and_service_put) | **put** /api/v1/service_profile/{profile_id}/service/{service_id} | Add a Service to a Service Profile
+[**add_traffic_limit**](ServiceProfilesApi.md#add_traffic_limit) | **PUT** /api/v1/service_profile/{profile_id}/service/{service_id}/traffic_limit/{limit_id} | Add Traffic Limit to Service Profile
+[**delete_quota_by_service_profile_id**](ServiceProfilesApi.md#delete_quota_by_service_profile_id) | **DELETE** /api/v1/service_profile/{profile_id}/quota/{quota_type} | Remove all quotas of assigned endpoints
+[**remove_traffic_limit**](ServiceProfilesApi.md#remove_traffic_limit) | **DELETE** /api/v1/service_profile/{profile_id}/service/{service_id}/traffic_limit/{limit_id} | Remove Traffic Limit from a Service Profile
+[**service_profile_by_profile_id_delete**](ServiceProfilesApi.md#service_profile_by_profile_id_delete) | **DELETE** /api/v1/service_profile/{profile_id} | Delete a Service Profile
+[**service_profile_by_profile_id_get**](ServiceProfilesApi.md#service_profile_by_profile_id_get) | **GET** /api/v1/service_profile/{profile_id} | Retrieve a Service Profile
+[**service_profile_by_profile_id_patch**](ServiceProfilesApi.md#service_profile_by_profile_id_patch) | **PATCH** /api/v1/service_profile/{profile_id} | Update Service Profile
+[**service_profile_get**](ServiceProfilesApi.md#service_profile_get) | **GET** /api/v1/service_profile | List Service Profiles
+[**service_profile_post**](ServiceProfilesApi.md#service_profile_post) | **POST** /api/v1/service_profile | Create Service Profile
+[**service_profile_service_by_profile_and_service_delete**](ServiceProfilesApi.md#service_profile_service_by_profile_and_service_delete) | **DELETE** /api/v1/service_profile/{profile_id}/service/{service_id} | Remove a Service from a Service Profile
+[**service_profile_service_by_profile_and_service_put**](ServiceProfilesApi.md#service_profile_service_by_profile_and_service_put) | **PUT** /api/v1/service_profile/{profile_id}/service/{service_id} | Add a Service to a Service Profile
 
 
 
@@ -30,7 +31,38 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **profile_id** | **f32** | The Numeric ID of a Service Profile | [required] |
 **limit_id** | **f32** | Numerical ID of a Traffic Limit | [required] |
-**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, _warning:_ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
+**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, __warning:__ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_quota_by_service_profile_id
+
+> delete_quota_by_service_profile_id(profile_id, quota_type)
+Remove all quotas of assigned endpoints
+
+Remove all quotas of endpoints which are assigned to this profile. Notice that `apply_data_quota` and/or `apply_sms_quota` have to be patched to false before, otherwise the endpoints will get blocked for having no quota left. This call will also return successfully if no endpoint is assigned or no quotas are set. 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**profile_id** | **f32** | The Numeric ID of a Service Profile | [required] |
+**quota_type** | **String** | The type of service of the quota, can be `data` or `sms` | [required] |
 
 ### Return type
 
@@ -62,7 +94,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **profile_id** | **f32** | The Numeric ID of a Service Profile | [required] |
 **limit_id** | **f32** | Numerical ID of a Traffic Limit | [required] |
-**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, _warning:_ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
+**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, __warning:__ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
 
 ### Return type
 
@@ -145,7 +177,7 @@ Name | Type | Description  | Required | Notes
 > serde_json::Value service_profile_by_profile_id_patch(profile_id, update_service_profile)
 Update Service Profile
 
-Update a service profile with a given id.  Editable fields: * `name` (String optional) * `description` (String optional) * `allowed_3g` (boolean optional) * `allowed_4g` (boolean optional) * `allowed_nb_iot` (boolean optional) * _DEPRECATED_ `apply_quota` (boolean optional, defaults to false). Use `apply_data_quota` instead. Will be ignored if `apply_data_quota` is present. * `apply_data_quota` (boolean optional, defaults to false) * `apply_sms_quota` (boolean optional, defaults to false) * `retail` (boolean optional, defaults to false) * `sms_p2p_int` (boolean optional, defaults to true) * `sms_p2p_ext` (boolean optional, defaults to true) * `prepaid` (boolean optional, defaults to false) * `nipdp` (boolean optional, defaults to false) * `api_callback` (object optional) can be emptied by setting the id to null (\"api_callback\":{\"id\":null}) * `api_secret` (object optional) can be emptied by setting the id to null (\"api_secret\":{\"id\":null}) * `moc_callback` (object optional) can be emptied by setting the id to null (\"moc_callback\":{\"id\":null}) * `esme_interface_type` (object optional) * `breakout_region` (object optional) * `dns` (object optional) 
+Update a service profile with a given id.  Editable fields: * `name` (String optional) * `description` (String optional) * `allowed_3g` (boolean optional) * `allowed_4g` (boolean optional) * `allowed_nb_iot` (boolean optional) * __DEPRECATED__ `apply_quota` (boolean optional, defaults to false). Use `apply_data_quota` instead. Will be ignored if `apply_data_quota` is present. * `apply_data_quota` (boolean optional, defaults to false) * `apply_sms_quota` (boolean optional, defaults to false) * `retail` (boolean optional, defaults to false) * `sms_p2p_int` (boolean optional, defaults to true) * `sms_p2p_ext` (boolean optional, defaults to true) * `prepaid` (boolean optional, defaults to false) * `nipdp` (boolean optional, defaults to false) * `api_callback` (object optional) can be emptied by setting the id to null (\"api_callback\":{\"id\":null}) * `api_secret` (object optional) can be emptied by setting the id to null (\"api_secret\":{\"id\":null}) * `moc_callback` (object optional) can be emptied by setting the id to null (\"moc_callback\":{\"id\":null}) * `esme_interface_type` (object optional) * `breakout_region` (object optional) * `dns` (object optional) 
 
 ### Parameters
 
@@ -203,7 +235,7 @@ This endpoint does not need any parameter.
 > service_profile_post(createa_service_profilerequest)
 Create Service Profile
 
-Creates a new Service Profile. A `name` must be specified for the Service Profile and all other fields are optional.  Editable fields: * `name` (String required) * `description` (String optional) * `allowed_3g` (boolean optional, defaults to true) * `allowed_4g` (boolean optional, defaults to true) * `allowed_nb_iot` (boolean optional, defaults to true) * **DEPRECATED** `apply_quota` (boolean optional, defaults to false).  Use `apply_data_quota` instead. Will be ignored if `apply_data_quota` is present. * `apply_data_quota` (boolean optional, defaults to false) * `apply_sms_quota` (boolean optional, defaults to false) * `retail` (boolean optional, defaults to false) * `sms_p2p_int` (boolean optional, defaults to true) * `sms_p2p_ext` (boolean optional, defaults to true) * `prepaid` (boolean optional, defaults to false) * `nipdp` (boolean optional, defaults to false) * `api_callback` (object optional) * `api_secret` (object optional) * `moc_callback` (object optional) * `esme_interface_type` (object optional) * `breakout_region` (object optional) * `dns` (object optional)  _Note:_ enabling services (SMS, Data etc.) is done via `PUT` to `/api/v1/service_profile/{profile_id}/service/{service_id}` 
+Creates a new Service Profile. A `name` must be specified for the Service Profile and all other fields are optional.  Editable fields: * `name` (String required) * `description` (String optional) * `allowed_3g` (boolean optional, defaults to true) * `allowed_4g` (boolean optional, defaults to true) * `allowed_nb_iot` (boolean optional, defaults to true) * **DEPRECATED** `apply_quota` (boolean optional, defaults to false).  Use `apply_data_quota` instead. Will be ignored if `apply_data_quota` is present. * `apply_data_quota` (boolean optional, defaults to false) * `apply_sms_quota` (boolean optional, defaults to false) * `retail` (boolean optional, defaults to false) * `sms_p2p_int` (boolean optional, defaults to true) * `sms_p2p_ext` (boolean optional, defaults to true) * `prepaid` (boolean optional, defaults to false) * `nipdp` (boolean optional, defaults to false) * `api_callback` (object optional) * `api_secret` (object optional) * `moc_callback` (object optional) * `esme_interface_type` (object optional) * `breakout_region` (object optional) * `dns` (object optional)  __Note:__ enabling services (SMS, Data etc.) is done via `PUT` to `/api/v1/service_profile/{profile_id}/service/{service_id}` 
 
 ### Parameters
 
@@ -241,7 +273,7 @@ Remove service from the collection of services associated to a profile. A servic
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **profile_id** | **f32** | The Numeric ID of a Service Profile | [required] |
-**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, _warning:_ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
+**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, __warning:__ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
 
 ### Return type
 
@@ -264,7 +296,7 @@ Name | Type | Description  | Required | Notes
 > service_profile_service_by_profile_and_service_put(profile_id, service_id)
 Add a Service to a Service Profile
 
-Add service to the collection of services associated to a profile. Multiple services can be assigned, but each only once.  _Warning:_ Adding the voice service with an id of `3` to a service profile will be successful, but this feature is _not enabled_ by the platform. 
+Add service to the collection of services associated to a profile. Multiple services can be assigned, but each only once.  __Warning:__ Adding the voice service with an id of `3` to a service profile will be successful, but this feature is __not enabled__ by the platform. 
 
 ### Parameters
 
@@ -272,7 +304,7 @@ Add service to the collection of services associated to a profile. Multiple serv
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **profile_id** | **f32** | The Numeric ID of a Service Profile | [required] |
-**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, _warning:_ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
+**service_id** | **f32** | The Numeric ID of a Service, may be:  * `0`  - USSD  * `3`  - Voice, __warning:__ voice services are not available!  * `6`  - SMS MT  * `32` - SMS MO  * `38` - Data  | [required] |
 
 ### Return type
 
